@@ -1,0 +1,126 @@
+
+
+<div class="container">
+    <router-outlet></router-outlet>
+      <section class="cd-horizontal-timeline">
+        <div class="timeline">
+            <div class="events-wrapper">
+                <div class="events" >
+                    
+                  
+                        <li><a href="#0"  attr.data-date  = "{{dateStr}}" class="selected"> {{SelectedMovement.newDate_vl_readings_datetime |   date : 'dd MMM'}}</a></li>
+                        
+                        <ol  *ngIf="listMov">   
+                        <li *ngFor="let mv of listMov" style="
+    margin-left: 20px;
+" >
+                            <a href="#0" attr.data-date  = "{{mv.formatedDateForTimeLine}}">{{mv.newDate_vl_readings_datetime |  date : 'dd MMM'}}</a>
+                            
+                        </li>
+                        
+                        
+                        <!--<li><a href="#0" data-date="14/09/2015">14 Sep</a></li>-->
+                        
+                    </ol>
+                     
+                    <span class="filling-line" aria-hidden="true"></span>
+                </div> <!-- .events -->
+            </div> <!-- .events-wrapper -->
+                
+            <ul class="cd-timeline-navigation">
+                <li><a href="#0" class="prev inactive">Prev</a></li>
+                <li><a href="#0" class="next">Next</a></li>
+            </ul> <!-- .cd-timeline-navigation -->
+        </div> <!-- .timeline -->
+    
+        <div class="events-content">
+                <li class="selected" attr.data-date= "{{SelectedMovement.formatedDateForTimeLine}}" >
+                        <h2>Load Country : {{SelectedMovement.vl_location_country}}  
+                        <span attr.class="{{SelectedMovement.vl_location_ABRV_country}}"></span> </h2>
+                        <p>Location : {{ SelectedMovement.vl_location_name }}</p>
+                        <p>Type : {{ SelectedMovement.vl_location_type }}</p>
+                        <p>Reference : {{ SelectedMovement.vessel_load_ref }}</p>
+                        <p>Reading Time : {{SelectedMovement.newDate_vl_readings_datetime |  date : 'yyyy-MM-dd HH:mm:ss'}}</p>
+                        <br>
+                        <br>
+                        <br>
+                        <h2>Discharge Country : {{SelectedMovement.vd_location_country}}   
+                        <span attr.class="{{SelectedMovement.vd_location_ABRV_country}}"></span> </h2>
+                        <p>Location : {{ SelectedMovement.vd_location_name }}</p>
+                        <p>Type : {{ SelectedMovement.vd_location_type }}</p>
+                        <p>Reference : {{ SelectedMovement.vessel_discharge_ref }}</p>
+                        <p>Reading Time : {{SelectedMovement.newDate_vd_readings_datetime |  date : 'yyyy-MM-dd HH:mm:ss'}}</p>
+
+                         
+                    </li>
+            
+            <ol *ngIf="listMov">
+			<li  *ngFor="let mv of listMov"  attr.data-date  = "{{mv.formatedDateForTimeLine}}" >
+                
+                    <h2>Load Country : {{mv.vl_location_country}}  
+                            <span attr.class="{{mv.vl_location_ABRV_country}}"></span> </h2>
+                            <p>Location : {{ mv.vl_location_name }}</p>
+                            <p>Type : {{ mv.vl_location_type }}</p>
+                            <p>Reference : {{ mv.vessel_load_ref }}</p>
+                            <p>Reading Time : {{mv.vl_readings_datetime |  date : 'yyyy-MM-dd HH:mm:ss'}}</p>
+                            <br>
+                            <br>
+                            <br>
+                            <h2>Discharge Country : {{mv.vd_location_country}}   
+                            <span attr.class="{{mv.vd_location_ABRV_country}}"></span> </h2>
+                            <p>Location : {{ mv.vd_location_name }}</p>
+                            <p>Type : {{ mv.vd_location_type }}</p>
+                            <p>Reference : {{ mv.vessel_discharge_ref }}</p>
+                            <p>Reading Time : {{mv.vd_readings_datetime |  date : 'yyyy-MM-dd HH:mm:ss'}}</p>
+    
+                 
+				 
+			</li>
+           <!-- <li data-date="14/09/2015">
+				<h2>Event title here</h2>
+				<em>July 9th, 2014</em>
+				<p>	
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa, quia velit nulla adipisci? Consequuntur aspernatur at, eaque hic repellendus sit dicta consequatur quae, ut harum ipsam molestias maxime non nisi reiciendis eligendi! Doloremque quia pariatur harum ea amet quibusdam quisquam, quae, temporibus dolores porro doloribus.
+				</p>
+			</li>
+        -->
+		 
+		</ol>
+        </div> <!-- .events-content -->
+        </section>
+        <br>
+        <br>
+        <br><br>
+        <br>
+        <br>
+ <!--
+<h1>Full details Movements</h1>
+ 
+<ul *ngIf="listMov">
+    <li *ngFor="let mv of listMov" class="lidesign">
+            <h2>Load Country : {{SelectedMovement.vl_location_country}}  
+                    <span attr.class="{{SelectedMovement.vl_location_ABRV_country}}"></span> </h2>
+                    <p>Location : {{ SelectedMovement.vl_location_name }}</p>
+                    <p>Type : {{ SelectedMovement.vl_location_type }}</p>
+                    <p>Reference : {{ SelectedMovement.vessel_load_ref }}</p>
+                    <p>Reading Time : {{SelectedMovement.newDate_vl_readings_datetime |  date : 'yyyy-MM-dd HH:mm:ss'}}</p>
+                    <br>
+                    <br>
+                    <br>
+                    <h2>Discharge Country : {{SelectedMovement.vd_location_country}}   
+                    <span attr.class="{{SelectedMovement.vd_location_ABRV_country}}"></span> </h2>
+                    <p>Location : {{ SelectedMovement.vd_location_name }}</p>
+                    <p>Type : {{ SelectedMovement.vd_location_type }}</p>
+                    <p>Reference : {{ SelectedMovement.vessel_discharge_ref }}</p>
+                    <p>Reading Time : {{SelectedMovement.newDate_vd_readings_datetime |  date : 'yyyy-MM-dd HH:mm:ss'}}</p>
+ </li>
+  </ul>
+agaiiin 
+     -->  
+
+
+
+
+
+
+</div>
