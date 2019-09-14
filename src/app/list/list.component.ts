@@ -5,7 +5,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { formatDate } from "@angular/common";
 import { MovementService } from "../movement.service";
 import { Movement } from '../models/movement.model';
-//import * as dataFile from '../../assets/data.json'; 
+import * as dataFile from '../../assets/data.json'; 
 
 
 
@@ -25,19 +25,19 @@ export class ListComponent implements OnInit {
   mb: Movement;
   SelectedMovement: Movement;
   listMov: Array<Movement> = [];
-  //json: any = dataFile;
+json: any = dataFile;
   MovementS: MovementService;
   constructor(private _http: HttpClient) { }
 
   ngOnInit() { 
 
-    this._http.get('./assets/data.json').subscribe(data => {
+    this._http.get('./assets/data.json').subscribe((data : any[])=> {
 
-     /* for (let index = 1; index < data.length; index++) {
+     for (let index = 1; index < data.length; index++) {
         this.mb = new Movement(data[index]);
         this.listMov.push(this.mb);
 
-      }*/
+      }
       this.SelectedMovement = new Movement(data[0]);
       this.dateStr = formatDate(this.SelectedMovement['newDate_vl_readings_datetime'], format, locale);
 
